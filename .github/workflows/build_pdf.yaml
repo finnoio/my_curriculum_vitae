@@ -2,7 +2,7 @@ name: Generate PDF from CV.tex
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build_latex:
