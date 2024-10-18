@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+
+% Required packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% Page margins
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+% Colors
+\definecolor{linkcolor}{HTML}{2b6cb0}
+\definecolor{sectioncolor}{HTML}{2d3748}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    urlcolor=linkcolor
+}
+
+% Custom section style
+\titleformat{\section}
+    {\Large\bfseries\color{sectioncolor}}
+    {}{0em}{}[\titlerule]
+
+% Custom commands for contact info
+\newcommand{\contactItem}[2]{#1: #2\hspace{1cm}}
+
+% Begin document
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\textbf{John Doe}}
+
+    \vspace{0.5em}
+    {\large Software Engineer}
+
+    \vspace{1em}
+    \contactItem{\faEnvelope}{john.doe@email.com}
+    \contactItem{\faPhone}{+1 (123) 456-7890}
+    \contactItem{\faGithub}{\href{https://github.com/johndoe}{github.com/johndoe}}
+    \contactItem{\faLinkedin}{\href{https://linkedin.com/in/johndoe}{linkedin.com/in/johndoe}}
+\end{center}
+
+% Summary
+\section{Summary}
+Experienced software engineer with over 5 years of expertise in full-stack development,
+specializing in cloud-native applications and distributed systems.
+Proven track record of delivering scalable solutions and leading development teams.
+
+% Experience
+\section{Experience}
+\textbf{Senior Software Engineer} \hfill 2020 -- Present\\
+Tech Corp, San Francisco, CA
+\begin{itemize}[leftmargin=*]
+    \item Led development of microservices architecture serving 1M+ daily users
+    \item Implemented CI/CD pipelines reducing deployment time by 60\%
+    \item Mentored junior developers and conducted technical interviews
+\end{itemize}
+
+\textbf{Software Engineer} \hfill 2018 -- 2020\\
+Startup Inc, Seattle, WA
+\begin{itemize}[leftmargin=*]
+    \item Developed RESTful APIs using Node.js and Express
+    \item Optimized database queries resulting in 40\% performance improvement
+    \item Collaborated with product team to implement new features
+\end{itemize}
+
+% Skills
+\section{Skills}
+\textbf{Programming Languages:} Python, JavaScript, Java, Go, SQL\\
+\textbf{Technologies:} React, Node.js, Docker, Kubernetes, AWS\\
+\textbf{Tools:} Git, Jenkins, Terraform, Prometheus, Grafana
+
+% Education
+\section{Education}
+\textbf{Master of Science in Computer Science} \hfill 2018\\
+University of Washington, Seattle
+\begin{itemize}[leftmargin=*]
+    \item GPA: 3.8/4.0
+    \item Thesis: "Scalable Machine Learning Pipeline for Real-time Data Processing"
+\end{itemize}
+
+\textbf{Bachelor of Science in Computer Science} \hfill 2016\\
+University of California, Berkeley
+\begin{itemize}[leftmargin=*]
+    \item GPA: 3.7/4.0
+    \item Minor in Mathematics
+\end{itemize}
+
+% Projects
+\section{Projects}
+\textbf{Open Source Contribution Management System}
+\begin{itemize}[leftmargin=*]
+    \item Developed a web application to track and manage open source contributions
+    \item Used React, GraphQL, and PostgreSQL
+    \item 500+ active users and 4.8/5 rating on GitHub marketplace
+\end{itemize}
+
+% Awards & Certifications
+\section{Awards \& Certifications}
+\begin{itemize}[leftmargin=*]
+    \item AWS Certified Solutions Architect - Professional
+    \item Google Cloud Professional Developer
+    \item Best Paper Award, International Conference on Cloud Computing 2019
+\end{itemize}
+
+\end{document}
