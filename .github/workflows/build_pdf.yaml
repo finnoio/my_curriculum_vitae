@@ -1,4 +1,4 @@
-name: Generate PDF from CV.tex
+name: Generate PDF from LaTeX
 on:
   push:
     branches:
@@ -11,13 +11,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install TeX Live
+      - name: Install minimal TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-full
+          sudo apt-get install -y texlive-latex-base 
+          sudo apt-get install -y texlive-fonts-recommended
+          sudo apt-get install -y texlive-latex-extra
           sudo apt-get install -y latexmk
 
-      - name: Compile LaTeX CV
+      - name: Compile LaTeX
         run: |
           latexmk -pdf CV.tex
 
