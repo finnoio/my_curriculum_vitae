@@ -1,114 +1,89 @@
 \documentclass[11pt,a4paper]{article}
 
-% Required packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{fontawesome}
-\usepackage{titlesec}
+\usepackage[margin=1in]{geometry}
 \usepackage{enumitem}
-\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage[explicit]{titlesec}
 
-% Page margins
-\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+% Remove page numbers
+\pagenumbering{gobble}
 
-% Colors
-\definecolor{linkcolor}{HTML}{2b6cb0}
-\definecolor{sectioncolor}{HTML}{2d3748}
+% Custom formatting
+\titleformat{\section}{\Large\bfseries}{}{0pt}{#1}
+\titlespacing{\section}{0pt}{12pt}{8pt}
 
-% Hyperref setup
-\hypersetup{
-    colorlinks=true,
-    urlcolor=linkcolor
+% Custom list formatting
+\setlist[itemize]{leftmargin=*,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=4pt}
+
+% Define time period command
+\newcommand{\timeperiod}[1]{%
+    \hfill{\small\textbf{#1}}\par%
 }
 
-% Custom section style
-\titleformat{\section}
-    {\Large\bfseries\color{sectioncolor}}
-    {}{0em}{}[\titlerule]
+% Custom spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-% Custom commands for contact info
-\newcommand{\contactItem}[2]{#1: #2\hspace{1cm}}
-
-% Begin document
 \begin{document}
 
 % Header
 \begin{center}
-    {\Huge\textbf{Sample1 Sample}}
-
-    \vspace{0.5em}
-    {\large Software Engineer}
-
-    \vspace{1em}
-    \contactItem{\faEnvelope}{john.doe@email.com}
-    \contactItem{\faPhone}{+1 (123) 456-7890}
-    \contactItem{\faGithub}{\href{https://github.com/johndoe}{github.com/johndoe}}
-    \contactItem{\faLinkedin}{\href{https://linkedin.com/in/johndoe}{linkedin.com/in/johndoe}}
+\huge\textbf{Nikolai Dementev}\\[4pt]
+\normalsize nidementyev@gmail.com | Moscow, Russia
 \end{center}
 
-% Summary
-\section{Summary}
-Experienced software engineer with over 5 years of expertise in full-stack development,
-specializing in cloud-native applications and distributed systems.
-Proven track record of delivering scalable solutions and leading development teams.
+\section{EDUCATION}
+\textbf{BS Thermal physics}\timeperiod{Sep 2011 - Jul 2016}
+\textit{Moscow Power Engineering Institute, Moscow, Russia}
 
-% Experience
-\section{Experience}
-\textbf{Senior Software Engineer} \hfill 2020 -- Present\\
-Tech Corp, San Francisco, CA
-\begin{itemize}[leftmargin=*]
-    \item Led development of microservices architecture serving 1M+ daily users
-    \item Implemented CI/CD pipelines reducing deployment time by 60\%
-    \item Mentored junior developers and conducted technical interviews
+\section{EXPERIENCE}
+\textbf{Data Engineer}\timeperiod{Nov 2020 - Apr 2023}
+\textit{Delimobil (Russia's leading carsharing service), Moscow, Russia}
+\begin{itemize}
+    \item With my previous QA experience I started with data quality activities, as I developed testing framework from scratch and ran prod-like testing environment. Python+ Pytest.
+    \item Implementing ELT pipelines (Python) using Anchor Modeling(6NF) as a database modeling technique.
+    \item Working with many various data sources, such as MySQL/PostgreSQL/Mongo DBs, Appsflyer, Mindbox, 1C, Google Sheets, Apache Kafka, different REST API's.
+    \item Developed an DSL for writing new pipelines.
+    \item Integrated real-time data ingestion/analysing pipeline for dynamic pricing service on our international branch (Apache Kafka, SingleStore DB).
+    \item Initiated and implemented the Airflow upgrade from version 1.x.x to docker-based 2.x.x
+    \item CI/CD integration (Gitlab CI/CD)
 \end{itemize}
 
-\textbf{Software Engineer} \hfill 2018 -- 2020\\
-Startup Inc, Seattle, WA
-\begin{itemize}[leftmargin=*]
-    \item Developed RESTful APIs using Node.js and Express
-    \item Optimized database queries resulting in 40\% performance improvement
-    \item Collaborated with product team to implement new features
+\textbf{QA Engineer (Automation)}\timeperiod{Feb 2019 - Nov 2020}
+\textit{waves.tech (Blockchain platform), Moscow, Russia}
+\begin{itemize}
+    \item Automated integration testing of blockchain node application. Writing an API (REST/gRPC) for tests. Scala+Scalatest.
+    \item Automated integration testing of smart contracts, written in RIDE, and the language itself. Scala+Scalatest.
+    \item Developing custom transactions generator for load testing, implementation of load tests and integrating it with CI (Jenkins).
+    \item Participation in development of Java/Python library for interacting with blockhain node via REST API.
 \end{itemize}
 
-% Skills
-\section{Skills}
-\textbf{Programming Languages:} Python, JavaScript, Java, Go, SQL\\
-\textbf{Technologies:} React, Node.js, Docker, Kubernetes, AWS\\
-\textbf{Tools:} Git, Jenkins, Terraform, Prometheus, Grafana
-
-% Education
-\section{Education}
-\textbf{Master of Science in Computer Science} \hfill 2018\\
-University of Washington, Seattle
-\begin{itemize}[leftmargin=*]
-    \item GPA: 3.8/4.0
-    \item Thesis: "Scalable Machine Learning Pipeline for Real-time Data Processing"
+\textbf{QA Engineer (Automation)}\timeperiod{Dec 2017 - Feb 2019}
+\textit{Raiffeisen bank, Moscow, Russia}
+\begin{itemize}
+    \item Building a testing framework for card processing systems (REST/SOAP services, Oracle/Postgres DB, IBM MQ). Java+TestNG.
+    \item Integration/unit tests writing.
+    \item CI/CD integration (Atlassian Bamboo).
 \end{itemize}
 
-\textbf{Bachelor of Science in Computer Science} \hfill 2016\\
-University of California, Berkeley
-\begin{itemize}[leftmargin=*]
-    \item GPA: 3.7/4.0
-    \item Minor in Mathematics
+\textbf{QA Engineer (Automation)}\timeperiod{Apr 2017 - Dec 2017}
+\textit{Mel.fm (Digital media platform), Moscow, Russia}
+\begin{itemize}
+    \item Automated integration/regression testing (Java+TestNG+Selenium).
+    \item Load testing (Yandex Tank, Apache JMeter).
+    \item Simple test environment management (Jenkins).
 \end{itemize}
 
-% Projects
-\section{Projects}
-\textbf{Open Source Contribution Management System}
-\begin{itemize}[leftmargin=*]
-    \item Developed a web application to track and manage open source contributions
-    \item Used React, GraphQL, and PostgreSQL
-    \item 500+ active users and 4.8/5 rating on GitHub marketplace
-\end{itemize}
-
-% Awards & Certifications
-\section{Awards \& Certifications}
-\begin{itemize}[leftmargin=*]
-    \item AWS Certified Solutions Architect - Professional
-    \item Google Cloud Professional Developer
-    \item Best Paper Award, International Conference on Cloud Computing 2019
-\end{itemize}
+\section{SKILLS}
+\begin{description}[labelwidth=1.5cm,leftmargin=!]
+    \item[Languages] Java, Scala, Python
+    \item[DBs] Oracle, MySQL, PostgreSQL, MemSQL (SingleStore), MongoDB, Vertica
+    \item[MQs] IBM MQ, Apache Kafka
+    \item[Schedulers] Airflow, Cron
+    \item[Testing] Pytest, Scalatest, TestNG, JUnit
+    \item[CI/CD tools] Jenkins, Atlassian Bamboo, Gitlab CI/CD tools
+    \item[Other] Docker, AWS
+\end{description}
 
 \end{document}
