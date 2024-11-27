@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install minimal TeX Live
+      - name: Install TeX Live with XeTeX support
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -20,11 +20,13 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-extra \
             texlive-font-utils \
+            texlive-xetex \
+            texlive-luatex \
             latexmk
 
-      - name: Compile LaTeX
+      - name: Compile LaTeX with XeLaTeX
         run: |
-          latexmk -pdf CV.tex
+          latexmk -xelatex -interaction=nonstopmode -file-line-error CV.tex
 
       - name: Check if PDF was generated
         run: |
