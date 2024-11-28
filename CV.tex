@@ -4,41 +4,52 @@
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fontspec}
-\usepackage[explicit]{titlesec}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{soul} % for underlining
+\usepackage{setspace}
+
+% Set default font to sans-serif
+\setmainfont{Liberation Sans}[
+  BoldFont={Liberation Sans Bold},
+  ItalicFont={Liberation Sans Italic},
+  BoldItalicFont={Liberation Sans Bold Italic}
+]
 
 % Remove page numbers
 \pagenumbering{gobble}
 
-% Custom formatting
-\titleformat{\section}{\Large\bfseries}{}{0pt}{#1}
+% Style for section titles (bold and underlined)
+\titleformat{\section}{\Large\bfseries}{\thesection}{0em}{\setulcolor{black}\ul{#1}}
 \titlespacing{\section}{0pt}{12pt}{8pt}
 
-% Custom list formatting
+% Custom list formatting with increased spacing between jobs
 \setlist[itemize]{leftmargin=*,topsep=0pt,partopsep=0pt,parsep=0pt,itemsep=4pt}
 
-% Define time period command
+% Define time period command with white text on black background
 \newcommand{\timeperiod}[1]{%
-    \hfill{\small\textbf{#1}}\par%
+    \hfill{\small\colorbox{black}{\textcolor{white}{\textbf{#1}}}}\par%
 }
 
 % Custom spacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 
+% Increase spacing between job entries
+\newcommand{\jobsep}{\vspace{1.5em}}
+
 \begin{document}
 
-% Header
-\begin{center}
-\huge\textbf{Nikolai Dementev}\\[4pt]
-\normalsize nidementyev@gmail.com | Moscow, Russia
-\end{center}
+% Header (left-aligned)
+{\huge\textbf{Nikolay Dementyev}}\\[4pt]
+{\normalsize nidementyev@gmail.com | Moscow, Russia}
 
 \section{EDUCATION}
 \textbf{BS Thermal physics}\timeperiod{Sep 2011 - Jul 2016}
 \textit{Moscow Power Engineering Institute, Moscow, Russia}
 
 \section{EXPERIENCE}
-\textbf{Data Engineer}\timeperiod{Nov 2020 - Apr 2023}
+\textbf{Data Engineer}\timeperiod{Nov 2020 - Present}
 \textit{Delimobil (Russia's leading carsharing service), Moscow, Russia}
 \begin{itemize}
     \item With my previous QA experience I started with data quality activities, as I developed testing framework from scratch and ran prod-like testing environment. Python+ Pytest.
@@ -50,6 +61,7 @@
     \item CI/CD integration (Gitlab CI/CD)
 \end{itemize}
 
+\jobsep
 \textbf{QA Engineer (Automation)}\timeperiod{Feb 2019 - Nov 2020}
 \textit{waves.tech (Blockchain platform), Moscow, Russia}
 \begin{itemize}
@@ -59,6 +71,7 @@
     \item Participation in development of Java/Python library for interacting with blockhain node via REST API.
 \end{itemize}
 
+\jobsep
 \textbf{QA Engineer (Automation)}\timeperiod{Dec 2017 - Feb 2019}
 \textit{Raiffeisen bank, Moscow, Russia}
 \begin{itemize}
@@ -67,6 +80,7 @@
     \item CI/CD integration (Atlassian Bamboo).
 \end{itemize}
 
+\jobsep
 \textbf{QA Engineer (Automation)}\timeperiod{Apr 2017 - Dec 2017}
 \textit{Mel.fm (Digital media platform), Moscow, Russia}
 \begin{itemize}
