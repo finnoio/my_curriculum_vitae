@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install TeX Live with XeTeX support
+      - name: Install TeX Live with all required packages
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -22,6 +22,8 @@ jobs:
             texlive-font-utils \
             texlive-xetex \
             texlive-luatex \
+            texlive-humanities \  # for soul package
+            fonts-arial \         # for Arial font
             latexmk
 
       - name: Compile LaTeX with XeLaTeX
@@ -34,6 +36,13 @@ jobs:
             echo "PDF file was not generated"
             exit 1
           fi
+          
+      - name: Check file size and number of pages
+        run: |
+          echo "PDF file size:"
+          ls -lh CV.pdf
+          echo "Number of pages:"
+          pdfinfo CV.pdf | grep Pages
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
