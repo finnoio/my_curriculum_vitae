@@ -22,8 +22,7 @@ jobs:
             texlive-font-utils \
             texlive-xetex \
             texlive-luatex \
-            texlive-humanities \  # for soul package
-            fonts-arial \         # for Arial font
+            fonts-liberation \
             latexmk
 
       - name: Compile LaTeX with XeLaTeX
