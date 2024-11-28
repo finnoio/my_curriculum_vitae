@@ -6,7 +6,6 @@
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{titlesec}
-\usepackage{soul} % for underlining
 \usepackage{setspace}
 
 % Set default font to sans-serif
@@ -19,8 +18,20 @@
 % Remove page numbers
 \pagenumbering{gobble}
 
-% Style for section titles (bold and underlined)
-\titleformat{\section}{\Large\bfseries}{\thesection}{0em}{\setulcolor{black}\ul{#1}}
+% Style for section titles (bold with underline)
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{\uline{#1}}
+
+% Add the uline command definition
+\makeatletter
+\newcommand\uline[1]{%
+  \bgroup\markoverwith{\rule[-0.5ex]{0.4pt}{0.4pt}}\ULon{{#1}}\egroup%
+}
+\makeatother
+
 \titlespacing{\section}{0pt}{12pt}{8pt}
 
 % Custom list formatting with increased spacing between jobs
