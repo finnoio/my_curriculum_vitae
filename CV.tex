@@ -19,6 +19,9 @@
 % Remove page numbers
 \pagenumbering{gobble}
 
+% Define a thicker underline command
+\renewcommand{\ULthickness}{2pt} % Make underline thicker
+
 % Style for section titles (bold with underline)
 \titleformat{\section}
 {\Large\bfseries}
@@ -45,9 +48,11 @@
 
 \begin{document}
 
-% Header (left-aligned)
-{\huge\textbf{Nikolay Dementyev}}\\[4pt]
+% Header (right-aligned)
+\begin{flushright}
+{\huge\textbf{Nikolai Dementev}}\\[4pt]
 {\normalsize nidementyev@gmail.com | Moscow, Russia}
+\end{flushright}
 
 \section{EDUCATION}
 \textbf{BS Thermal physics}\timeperiod{Sep 2011 - Jul 2016}
