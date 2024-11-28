@@ -6,6 +6,7 @@
 \usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{ulem}
 \usepackage{setspace}
 
 % Set default font to sans-serif
@@ -23,14 +24,7 @@
 {\Large\bfseries}
 {}
 {0em}
-{\uline{#1}}
-
-% Add the uline command definition
-\makeatletter
-\newcommand\uline[1]{%
-  \bgroup\markoverwith{\rule[-0.5ex]{0.4pt}{0.4pt}}\ULon{{#1}}\egroup%
-}
-\makeatother
+{\uline}
 
 \titlespacing{\section}{0pt}{12pt}{8pt}
 
